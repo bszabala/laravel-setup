@@ -4,6 +4,7 @@ LABEL maintainer="bazzzabala77@gmail.com"
 # Install apache, PHP, and supplimentary programs. curl, and lynx-cur are for debugging the container.
 RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y install software-properties-common python-software-properties
+RUN add-apt-repository -y ppa:ondrej/php
 RUN apt-get update
 RUN apt-get -y install imagemagick
 RUN apt-get -y install vim apache2 php libapache2-mod-php7.1 php7.1-mcrypt php7.1-curl php7.1-cli php7.1-common php7.1-json php7.1-mysql php7.1-readline php7.1-mbstring php7.1-xml php7.1-imagick php7.1-zip curl php7.1-intl lynx-cur php7.1-soap poppler-utils php-bcmath php-gd
