@@ -12,8 +12,8 @@ RUN a2enmod rewrite
 
 # Update the PHP.ini file
 RUN sed -i "s/memory_limit = 128M/memory_limit = 500M/" /etc/php/7.0/apache2/php.ini
-RUN sed -i "s/post_max_size = 8M/post_max_size = 25M/" /etc/php/7.0/apache2/php.ini
-RUN sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 25M/" /etc/php/7.0/apache2/php.ini
+RUN sed -i "s/post_max_size = 8M/post_max_size = 50M/" /etc/php/7.0/apache2/php.ini
+RUN sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 50M/" /etc/php/7.0/apache2/php.ini
 
 # Manually set up the apache environment variables
 ENV APACHE_RUN_USER www-data
