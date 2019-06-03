@@ -2,18 +2,18 @@ FROM ubuntu:16.04
 LABEL maintainer="bazzzabala77@gmail.com"
 
 # Install apache, PHP, and supplimentary programs. curl, and lynx-cur are for debugging the container.
-RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive --no-install-recommends apt-utils
+RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y install imagemagick
-RUN apt-get -y install vim apache2 php libapache2-mod-php php-mcrypt php-curl php-cli php-common php-json php-mysql php-readline php-mbstring php-xml php-imagick php-zip curl php-intl lynx-cur php-soap poppler-utils php-bcmath php-gd apt-utils
+RUN apt-get -y install vim apache2 php libapache2-mod-php php-mcrypt php-curl php-cli php-common php-json php-mysql php-readline php-mbstring php-xml php-imagick php-zip curl php-intl lynx-cur php-soap poppler-utils php-bcmath php-gd
 
 # Enable apache mods.
-RUN a2enmod php7.3
+RUN a2enmod php7.2
 RUN a2enmod rewrite
 
 # Update the PHP.ini file
-RUN sed -i "s/memory_limit = 128M/memory_limit = 500M/" /etc/php/7.3/apache2/php.ini
-RUN sed -i "s/post_max_size = 8M/post_max_size = 50M/" /etc/php/7.3/apache2/php.ini
-RUN sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 50M/" /etc/php/7.3/apache2/php.ini
+RUN sed -i "s/memory_limit = 128M/memory_limit = 500M/" /etc/php/7.2/apache2/php.ini
+RUN sed -i "s/post_max_size = 8M/post_max_size = 50M/" /etc/php/7.2/apache2/php.ini
+RUN sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 50M/" /etc/php/7.2/apache2/php.ini
 
 # Manually set up the apache environment variables
 ENV APACHE_RUN_USER www-data
