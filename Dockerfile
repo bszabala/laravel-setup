@@ -7,7 +7,7 @@ RUN apt-get -y install software-properties-common python-software-properties
 RUN add-apt-repository -y -u ppa:ondrej/php
 RUN apt-get update
 RUN apt-get -y install imagemagick
-RUN apt-get -y install vim apache2 php libapache2-mod-php7.1 php7.1-mcrypt php7.1-curl php7.1-cli php7.1-common php7.1-json php7.1-mysql php7.1-readline php7.1-mbstring php7.1-xml php7.1-imagick php7.1-zip curl php7.1-intl lynx-cur php7.1-gd php7.1-soap poppler-utils
+RUN apt-get -y install vim apache2 php7.1 libapache2-mod-php7.1 php-mcrypt php-curl php-cli php-common php-json php-mysql php-readline php-mbstring php-xml php-imagick php-zip curl php-intl lynx-cur php-gd php-soap poppler-utils
 
 # Enable apache mods.
 RUN a2enmod php7.1
